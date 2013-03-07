@@ -1,3 +1,7 @@
+package "gcc"
+
+package "ruby-devel"
+
 template '/home/vagrant/.gemrc' do
   source 'gemrc.erb'
   backup false
@@ -7,6 +11,7 @@ template '/home/vagrant/.gemrc' do
 end
 
 bash "install rails" do
+  not_if("which rails")
   user "root"
   code <<-EOH
   gem install rails
