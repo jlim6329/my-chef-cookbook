@@ -1,4 +1,4 @@
 my-chef-cookbook
 ================
 
-my chef cookbook
+chef cookbook
