@@ -6,3 +6,9 @@ template '/home/vagrant/.gemrc' do
   mode 0644
 end
 
+bash "install rails" do
+  user "root"
+  code <<-EOH
+  gem install rails
+  EOH
+end
