@@ -8,6 +8,14 @@ package "ruby-devel"
 
 package "wget"
 
+package "httpd"
+
+# TODO disable firewalld
+# [stopping]
+# systemctl stop firewalld.service 
+# [disable at boot time]
+# systemctl disable firewalld.service
+
 bash "install node.js from source" do
   not_if("which node")
   user "root"
