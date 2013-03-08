@@ -10,12 +10,6 @@ package "wget"
 
 package "httpd"
 
-# TODO disable firewalld
-# [stopping]
-# systemctl stop firewalld.service 
-# [disable at boot time]
-# systemctl disable firewalld.service
-
 bash "install node.js from source" do
   not_if("which node")
   user "root"
@@ -43,4 +37,9 @@ bash "install rails" do
   code <<-EOF
   gem install rails
   EOF
+end
+
+service "firewalld" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :disable, :stop ]
 end
